@@ -1,12 +1,13 @@
 # Shopping Sale backend is a Java spring boot maven application
 
+## Dependencies:
+### It starts its own postgreSQL container needs to run first from root:
+    docker compose up
+
 ## Run:
 ### Can be started by running SaleTaxesBeApplication in an ide
 ### From the root folder:
     mvnw spring-boot:run
-
-## Dependencies:
-### It starts its own postgreSQL container
 
 ## Tests:
 ### Can be started by running Maven test lifecycle phase
