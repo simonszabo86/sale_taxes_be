@@ -41,7 +41,7 @@ public class ProductServiceTest {
     public void whenProductListGivesProducts_thenReturnTheSameProducts() {
 
         ProductType productType1 = new ProductType(1L, ProductTypeEnum.BOOK, 1D, new ArrayList<>());
-        Product product1 = new Product(1L, "book", 12.49, false, productType1);
+        Product product1 = new Product(1L, "book", 12.49, false, productType1, new ArrayList<>());
         List<Product> productList = new ArrayList<>();
         productList.add(product1);
 

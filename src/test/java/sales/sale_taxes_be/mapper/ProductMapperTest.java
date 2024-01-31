@@ -27,9 +27,9 @@ public class ProductMapperTest {
     public void whenProductAreNotImported_mappingLogicShouldWorkCorrectly() {
 
         List<Product> productList = new ArrayList<>();
-        Product product1 = new Product(1L, "book", 12.49, false, bookType);
-        Product product2 = new Product(2L, "music CD", 14.99, false, entertainmentType);
-        Product product3 = new Product(3L, "chocolate bar", 0.85, false, foodType);
+        Product product1 = new Product(1L, "book", 12.49, false, bookType, new ArrayList<>());
+        Product product2 = new Product(2L, "music CD", 14.99, false, entertainmentType, new ArrayList<>());
+        Product product3 = new Product(3L, "chocolate bar", 0.85, false, foodType, new ArrayList<>()) ;
         Collections.addAll(productList, product1, product2, product3);
 
         List<ProductDTO> productDTOList = productList.stream().map(ProductMapper::toDTO).toList();
@@ -48,8 +48,8 @@ public class ProductMapperTest {
     public void whenProductAreImported_mappingLogicShouldWorkCorrectly() {
 
         List<Product> productList = new ArrayList<>();
-        Product product1 = new Product(1L, "imported box of chocolates", 10.00, true, foodType);
-        Product product2 = new Product(2L, "imported bottle of perfume", 47.50, true, perfumeType);
+        Product product1 = new Product(1L, "imported box of chocolates", 10.00, true, foodType, new ArrayList<>());
+        Product product2 = new Product(2L, "imported bottle of perfume", 47.50, true, perfumeType, new ArrayList<>());
         Collections.addAll(productList, product1, product2);
 
         List<ProductDTO> productDTOList = productList.stream().map(ProductMapper::toDTO).toList();
@@ -66,10 +66,10 @@ public class ProductMapperTest {
     public void whenProductAreBothImportedAndNotImported_mappingLogicShouldWorkCorrectly() {
 
         List<Product> productList = new ArrayList<>();
-        Product product1 = new Product(1L, "imported bottle of perfume", 27.99, true, perfumeType);
-        Product product2 = new Product(2L, "bottle of perfume", 18.99, false, perfumeType);
-        Product product3 = new Product(3L, "packet of headache pills", 9.75, false, medicineType);
-        Product product4 = new Product(4L, "box of imported chocolates", 11.25, true, foodType);
+        Product product1 = new Product(1L, "imported bottle of perfume", 27.99, true, perfumeType, new ArrayList<>());
+        Product product2 = new Product(2L, "bottle of perfume", 18.99, false, perfumeType, new ArrayList<>());
+        Product product3 = new Product(3L, "packet of headache pills", 9.75, false, medicineType, new ArrayList<>());
+        Product product4 = new Product(4L, "box of imported chocolates", 11.25, true, foodType, new ArrayList<>());
         Collections.addAll(productList, product1, product2, product3, product4);
 
         List<ProductDTO> productDTOList = productList.stream().map(ProductMapper::toDTO).toList();

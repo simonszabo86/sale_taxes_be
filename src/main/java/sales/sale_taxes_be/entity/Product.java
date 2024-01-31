@@ -1,10 +1,15 @@
 package sales.sale_taxes_be.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.type.TrueFalseConverter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -12,23 +17,28 @@ import org.hibernate.type.TrueFalseConverter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
-  
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
 
-  @Column(name = "title")
-  private String title;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @Column(name = "price")
-  private Double price;
+    @Column(name = "title")
+    private String title;
 
-  @Column(name = "is_imported")
-  @Convert(converter = TrueFalseConverter.class)
-  private Boolean isImported;
+    @Column(name = "price")
+    private Double price;
 
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "product_type_id")
-  private ProductType productType;
+    @Column(name = "is_imported")
+    @Convert(converter = TrueFalseConverter.class)
+    private Boolean isImported;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_type_id")
+    private ProductType productType;
+
+    @ToString.Exclude
+    @JsonIgnore
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<ProductOfBasket> productOfBasketList = new ArrayList<>();
 
 }

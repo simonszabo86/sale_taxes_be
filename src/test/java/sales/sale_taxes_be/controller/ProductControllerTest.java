@@ -42,7 +42,7 @@ public class ProductControllerTest {
     @BeforeEach
     public void init () {
         ProductType productType = new ProductType(1L, ProductTypeEnum.BOOK, 1D, new ArrayList<>());
-        product = new Product(1L, "book", 1D, false, productType);
+        product = new Product(1L, "book", 1D, false, productType, new ArrayList<>());
         productDTO = new ProductDTO();
     }
 
@@ -58,7 +58,7 @@ public class ProductControllerTest {
         // Mocking the service behavior
         when(productService.listAllProducts()).thenReturn(productList);
 
-        // Performing an HTTP GET request to get employees
+        // Performing an HTTP GET request to get products
         ResultActions response = mockMvc.perform(get("/api/products")
                 .contentType(MediaType.APPLICATION_JSON));
 
