@@ -15,7 +15,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping
+    @GetMapping(produces = "application/json")
     public GetAllProductsResponse getAllProducts() {
         return new GetAllProductsResponse(productService.listAllProducts().stream().map(ProductMapper::toDTO).toList());
     }

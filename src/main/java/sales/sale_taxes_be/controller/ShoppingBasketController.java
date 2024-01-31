@@ -24,7 +24,7 @@ public class ShoppingBasketController {
     @Autowired
     private ShoppingBasketService shoppingBasketService;
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity<GetShoppingBasketResponse> getShoppingBasket(@PathVariable("id") Long id) {
         Optional<ShoppingBasket> shoppingBasket = shoppingBasketService.getShoppingBasket(id);
         if (shoppingBasket.isPresent()) {
