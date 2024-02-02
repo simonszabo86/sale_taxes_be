@@ -35,3 +35,5 @@
 ### where JAVA is installed and PATH is set up.
 ### Run sale_taxes_be.jar from the root by command:
     java -jar sale_taxes_be.jar
+### If still can't run jar read this:
+    https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Run-JAR-file-example-windows-linux-ubuntu
